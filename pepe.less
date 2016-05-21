@@ -2,7 +2,7 @@
  .affix {
       top: 0;
       width: 100%;
-	  z-index:10;
+	  z-index:20;
   }
 
   .affix + .container-fluid {
@@ -39,8 +39,8 @@
  }
  body
  {
-	background-color:multiply(multiply(@bgcol,#FFF),#FFF);
-	color:contrast(multiply(multiply(@bgcol,#FFF),#FFF));
+	background-color:darken(@bgcol,2%);
+	color:contrast(darken(@bgcol,2%));
  }
  
  tr{
@@ -55,9 +55,21 @@ tbody tr:hover
  {
    color: #333;
 }
+.navbar-default .navbar-brand
+ {
+   color: #FFF;
+   text-shadow: 2px 2px 2px multiply(@bgcol,#DDD);
+   &:hover{
+	  color: #FFF;
+   }
+}
+.navbar-default .navbar-toggle .icon-bar
+{
+	background-color: #FFF;
+}
  aside
  {
-	background-color:multiply(multiply(@bgcol,#DDD),#FFF);
+	background-color:multiply(multiply(@bgcol,#AAA),#FFF);
  }
  hr
  {
@@ -71,7 +83,7 @@ tbody tr:hover
  h1,h2,h3{
 	 text-shadow: 3px 3px 3px multiply(@bgcol,#666);
  }
- input,img{
+ input,img,panel{
 	 box-shadow: 3px 3px 3px multiply(@bgcol,#666);
  }
 .navbar-default{
@@ -84,6 +96,19 @@ tbody tr:hover
 		text-shadow:0px 0px 3px #EEE;
 	}
 }
-footer.container-fluid{
-	background-color:multiply(@bgcol,#888);
+.panel-heading 
+{
+	background-color:lighten(@bgcol,1%);
 }
+footer.container-fluid, .panel-body{
+	background-color:darken(@bgcol,7%);
+}
+ .inc
+ {
+	height:60vh;
+ }
+ 
+ audio
+ {
+	display:none;
+ }

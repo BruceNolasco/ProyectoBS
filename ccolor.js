@@ -31,12 +31,36 @@ function changeColor(ider,color){
 		document.cookie=color;
 	});
 };
-changeColor('p1','#00343F');
+changeColor('p1','#0F5935');
 changeColor('p2','#2E4170');
 changeColor('p3','#555527');
-if (typeof document.cookie !== 'undefined'){
+if (document.cookie !== ""){
 	less.modifyVars({
 			"@bgcol":document.cookie
 			});
 	less.refreshStyle;
 }
+else
+{
+	less.modifyVars({
+			"@bgcol":"#00343F"
+			});
+	less.refreshStyle;
+	document.cookie="#00343F";
+}
+
+function audioM(ider){
+	document.getElementById(ider).onclick=(function()
+	{
+		$('.activem').css("display","none");
+		document.getElementsByClassName('activem')[0].pause();
+		$('.activem').removeClass('activem');
+		document.getElementById(ider+'m').play();
+		$('#'+ider+'m').css("display","inline").addClass('activem');
+	});
+};
+$('#a1m').addClass('activem');
+
+audioM('a1');
+audioM('a2');
+audioM('a3');
